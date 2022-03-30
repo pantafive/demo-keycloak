@@ -1,0 +1,12 @@
+.*
+
+*/tmp
+
+*.pyc
+*.log
+
+node_modules
+
+!.gitignore
+!.dockerignore
+!.pre-commit-config.yaml

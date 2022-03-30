@@ -1,0 +1,58 @@
+version: '2.4'
+services:
+
+#  builder:
+#    build:
+#      context: .
+#      dockerfile: Dockerfile
+#      target: builder
+
+  frontend:
+    build:
+      context: .
+      target: frontend
+    environment:
+      KEYCLOAK_BASE_URL: http://localhost:8080
+      BACKEND_BASE_URL: http://localhost:3000
+    ports:
+      - "127.0.0.1:8000:8000"
+
+  backend_py:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: backend
+    environment:
+      KEYCLOAK_BASE_URL: http://keycloak:8080
+      BACKEND_GO_URL: http://backend_go:3333
+    ports:
+      - "127.0.0.1:3000:3000"
+
+  backend_go:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: backend_go
+    environment:
+      KEYCLOAK_BASE_URL: http://keycloak:8080
+    ports:
+      - "127.0.0.1:3333:3333"
+
+  keycloak:
+    image: jboss/keycloak:16.1.1
+    environment:
+      DB_VENDOR: H2
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: admin
+      KEYCLOAK_IMPORT: /tmp/realm-export.json
+    volumes:
+      - keycloak_data:/opt/jboss/keycloak/standalone/data
+      - ./keycloak/realm-export.json:/tmp/realm-export.json
+    ports:
+      - "127.0.0.1:8080:8080"
+    logging:
+      driver: none
+
+volumes:
+  keycloak_data:
+    driver: local
