@@ -41,7 +41,9 @@ Available services:
 - _**bob**_ (password `bob`) — user with **user** role
 - _**service**_ (access throw key) — user with **service** role
 
-> **backend_py** perform as a client for backend_go and works as a service account.
+**backend_py** has Service Account in the Keycloak and works as a client for **backend_go**.
+
+Feel free to experiment with Keycloak you are able to reset to "factory defaults" with `make clean`.
 
 ## Troubleshooting
 
