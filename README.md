@@ -72,6 +72,12 @@ cd /opt/jboss/keycloak/bin/
 
 ## References
 
+- [Keycloak - Identity and Access Management for Modern Applications](https://github.com/PacktPublishing/Keycloak-Identity-and-Access-Management-for-Modern-Applications) (book)
+
+- [Building an effective identity and access management architecture with Keycloak](https://youtu.be/RupQWmYhrLA) (youtube)
+
 - [FastAPI -Simple OAuth2](https://fastapi.tiangolo.com/tutorial/security/simple-oauth2/)
+
 - [Getting Started with Service Accounts in Keycloak](https://medium.com/@mihirrajdixit/getting-started-with-service-accounts-in-keycloak-c8f6798a0675)
+
 - [Build and Secure an API in Python with FastAPI ](https://developer.okta.com/blog/2020/12/17/build-and-secure-an-api-in-python-with-fastapi)
